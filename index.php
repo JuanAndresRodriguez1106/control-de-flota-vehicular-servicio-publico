@@ -1,3 +1,20 @@
+<?php
+
+// traer conexion base de datos
+require_once 'config/conexion.php';
+
+// ️ Conexión a BD
+$db = new Database();
+$pdo = $db->conectar();
+if (!$pdo) {
+    die('<div class="alert alert-danger text-center mt-5"> Error de conexión a la base de datos</div>');
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <!-- Documento HTML5 en español -->
 <html lang="es">
