@@ -1,0 +1,190 @@
+/* ===== RESET Y BASE ===== */
+body {
+    margin: 0;                  /* Elimina margen por defecto del navegador */
+    font-family: Arial;         /* Fuente general */
+    background: #020c24;        /* Fondo azul muy oscuro */
+    color: white;               /* Texto blanco por defecto */
+    display: flex;
+    flex-direction: column;      /* Para que el footer quede al final */
+    min-height: 100vh;          /* Ocupa toda la altura de la ventana */
+}
+
+/* ===== LAYOUT PRINCIPAL ===== */
+.container {
+    display: flex;
+    justify-content: center;    /* Centra horizontalmente */
+    align-items: center;        /* Centra verticalmente */
+    flex: 1;                     /* Para que el footer quede al final */
+}
+
+.login-box {
+    width: 380px;               /* Ancho fijo del formulario */
+}
+
+/* ===== LOGO ===== */
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;         /* Imagen circular */
+}
+
+.logo h2 {
+    display: inline-block;      /* Para que quede al lado de la imagen */
+    margin-left: 10px;
+}
+
+/* ===== TIPOGRAFÍA ===== */
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    color: #9ca3af;             /* Gris suave */
+}
+
+label {
+    display: block;             /* Cada label ocupa su propia línea */
+    margin: 15px 0 8px;        /* Espacio arriba y abajo */
+}
+
+/* ===== CAMPOS DE ENTRADA ===== */
+.input-group {
+    display: flex;
+    align-items: center;        /* Icono e input alineados verticalmente */
+    background: #111827;        /* Fondo oscuro del campo */
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.input-group i {
+    color: #9ca3af;             /* Iconos en gris */
+}
+
+.input-group input {
+    flex: 1;                    /* El input ocupa todo el espacio disponible */
+    border: none;
+    background: transparent;    /* Sin fondo propio, usa el del .input-group */
+    color: white;
+    margin-left: 10px;
+    outline: none;              /* Sin borde al hacer foco */
+}
+
+/* ===== BOTÓN SUBMIT ===== */
+button[type="submit"] {
+    width: 100%;
+    background: #16c79a;        /* Verde principal */
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+button:hover {
+    background: #13a679;        /* Verde más oscuro al pasar el mouse */
+}
+
+/* ===== MENSAJE DE ERROR PHP ===== */
+.error {
+    background: #dc2626;        /* Rojo */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* ===== ENLACE RECUPERAR CONTRASEÑA ===== */
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #9CA3AF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    color: white;
+}
+
+/* ===== BOTONES REDES SOCIALES ===== */
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-btn {
+    flex: 1;
+    height: 50px;
+    background: transparent;
+    border: 1px solid #374151;  /* Borde gris oscuro */
+    border-radius: 12px;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.social-btn:hover {
+    background: #111827;
+}
+
+/* ===== SEPARADOR "o continuar con" ===== */
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    color: #9CA3AF;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #374151;        /* Líneas grises a los lados */
+}
+
+.separator span {
+    padding: 0 15px;
+    white-space: nowrap;        /* Evita que el texto se parta */
+    font-size: 14px;
+}
+
+/* ===== SECCIÓN CREAR CUENTA ===== */
+.register {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.register p {
+    color: #9CA3AF;
+}
+
+.register a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register a:hover {
+    color: #16c79a;             /* Verde al hover */
+}
+
+/* ===== VALIDACIÓN JS ===== */
+.input-error {
+    border: 1px solid red !important;  /* Borde rojo cuando el campo tiene error */
+}
+
+

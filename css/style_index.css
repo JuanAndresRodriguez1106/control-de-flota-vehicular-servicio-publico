@@ -1,0 +1,648 @@
+/* ================================================================
+   STYLE.CSS - Estilos principales de la landing page CFV
+   Paleta: Azul oscuro (igual que el login)
+   ================================================================ */
+
+
+/* ================================================================
+   RESET Y BASE
+   Elimina estilos por defecto del navegador para partir desde cero
+   ================================================================ */
+* {
+    margin: 0;                  /* Elimina márgenes externos por defecto */
+    padding: 0;                 /* Elimina rellenos internos por defecto */
+    box-sizing: border-box;     /* El padding y border se incluyen dentro del ancho total */
+}
+
+body {
+    font-family: 'Arial', sans-serif;   /* Fuente general del sitio */
+    background: #020c24;               /* Fondo azul muy oscuro (igual que el login) */
+    color: #e8f0f8;                    /* Texto blanco azulado */
+}
+
+
+/* ================================================================
+   NAVBAR - Barra de navegación superior
+   ================================================================ */
+
+#mainNavbar {
+    background: #010d1e;                            /* Azul casi negro */
+    border-bottom: 2px solid #00c896;              /* Línea turquesa en la parte inferior */
+    padding: 12px 0;                               /* Espaciado interno arriba y abajo */
+    position: sticky;                              /* Se queda fija al hacer scroll */
+    top: 0;                                        /* Pegada al borde superior de la ventana */
+    z-index: 1000;                                 /* Por encima de todos los demás elementos */
+    box-shadow: 0 2px 20px rgba(0, 200, 150, 0.2); /* Sombra sutil turquesa debajo del navbar */
+}
+
+
+/* ================================================================
+   LOGO - Imagen circular con borde turquesa
+   ================================================================ */
+
+.logo-img {
+    border-radius: 50%;          /* Hace la imagen redonda (círculo) */
+    border: 2px solid #00c896;  /* Borde turquesa alrededor del logo */
+}
+
+
+/* ================================================================
+   NOMBRE DE MARCA - "CFV" al lado del logo
+   ================================================================ */
+
+.brand-name {
+    font-size: 1.4rem;          /* Tamaño de fuente más grande que el texto normal */
+    font-weight: 700;           /* Negrita */
+    color: #00c896;             /* Turquesa para resaltar la marca */
+    letter-spacing: 2px;        /* Espaciado entre letras para efecto moderno */
+}
+
+
+/* ================================================================
+   LINKS DEL NAVBAR - Cada ítem del menú de navegación
+   ================================================================ */
+
+.nav-custom {
+    color: #a0c4c4 !important;    /* Azul grisáceo claro (!important para sobreescribir Bootstrap) */
+    font-size: 0.9rem;            /* Tamaño de fuente ligeramente menor al cuerpo */
+    font-weight: 500;             /* Semi-negrita para mejor legibilidad */
+    padding: 8px 14px !important; /* Espaciado interno del link (área clickeable más grande) */
+    border-radius: 6px;           /* Bordes redondeados al hacer hover */
+    transition: all 0.25s ease;   /* Animación suave de 0.25 segundos al pasar el mouse */
+    letter-spacing: 0.5px;        /* Pequeño espaciado entre letras */
+}
+
+/* Estado hover: cuando el mouse pasa sobre un link */
+.nav-custom:hover {
+    color: #00c896 !important;              /* Cambia el texto a turquesa */
+    background: rgba(0, 200, 150, 0.1);    /* Fondo turquesa muy transparente */
+}
+
+/* Estado activo: el link de la sección en la que se encuentra el usuario */
+.nav-custom.active {
+    color: #00c896 !important;              /* Texto turquesa */
+    background: rgba(0, 200, 150, 0.15);   /* Fondo turquesa ligeramente más visible */
+}
+
+
+/* ================================================================
+   BOTÓN INICIAR SESIÓN - Esquina derecha del navbar
+   ================================================================ */
+
+.btn-login {
+    background: #00c896;        /* Fondo turquesa */
+    color: #fff !important;     /* Texto blanco */
+    border: none;               /* Sin borde */
+    padding: 9px 22px;          /* Espaciado interno: más ancho que alto */
+    border-radius: 8px;         /* Bordes bien redondeados */
+    font-size: 0.9rem;          /* Tamaño de fuente */
+    font-weight: 600;           /* Semi-negrita */
+    transition: all 0.25s ease; /* Animación suave al hacer hover */
+    letter-spacing: 0.5px;      /* Pequeño espaciado entre letras */
+    text-decoration: none;      /* Quita el subrayado del enlace */
+}
+
+/* Estado hover del botón: cuando el mouse pasa sobre él */
+.btn-login:hover {
+    background: #00e6ad;                             /* Turquesa más brillante */
+    transform: translateY(-1px);                     /* Se mueve 1px hacia arriba (efecto flotante) */
+    box-shadow: 0 4px 15px rgba(0, 200, 150, 0.35); /* Sombra turquesa debajo del botón */
+}
+
+
+/* ================================================================
+   HAMBURGUESA - Botón de menú en dispositivos móviles
+   ================================================================ */
+
+.navbar-toggler {
+    border-color: #00c896;  /* Borde turquesa alrededor del botón hamburguesa */
+}
+
+.navbar-toggler-icon {
+    /* filter: cambia el color del ícono hamburguesa a turquesa */
+    filter: invert(60%) sepia(80%) saturate(400%) hue-rotate(120deg);
+}
+
+
+/* ================================================================
+   HERO - Sección principal de bienvenida
+   ================================================================ */
+
+.hero {
+    padding: 80px 0 60px;       /* Espaciado generoso arriba y abajo */
+    padding-left: 16px;         /* Pequeño margen izquierdo */
+}
+
+/* ================================================================
+   ETIQUETA PEQUEÑA - "SISTEMA DE TRANSPORTE PÚBLICO"
+   ================================================================ */
+
+.hero-tag {
+    display: inline-block;               /* Para que no ocupe todo el ancho */
+    background: rgba(0, 200, 150, 0.1); /* Fondo turquesa muy transparente */
+    color: #00c896;                      /* Texto turquesa */
+    border: 1px solid #00c896;          /* Borde turquesa */
+    border-radius: 20px;                 /* Bordes muy redondeados (pastilla) */
+    font-size: 0.7rem;                   /* Texto pequeño */
+    padding: 4px 12px;                   /* Espaciado interno */
+    margin-bottom: 18px;                 /* Espacio debajo antes del título */
+    letter-spacing: 1px;                 /* Espaciado entre letras */
+}
+
+/* ================================================================
+   TÍTULO PRINCIPAL
+   ================================================================ */
+
+.hero-title {
+    font-size: 2.8rem;          /* Título grande y llamativo */
+    font-weight: 700;           /* Negrita */
+    color: #e8f0f8;             /* Blanco azulado */
+    line-height: 1.2;           /* Altura de línea compacta */
+    margin-bottom: 16px;        /* Espacio debajo del título */
+}
+
+.hero-accent {
+    color: #00c896;             /* Turquesa para resaltar "Flota Vehicular" */
+}
+
+/* ================================================================
+   DESCRIPCIÓN
+   ================================================================ */
+
+.hero-desc {
+    color: #7aaabb;             /* Azul grisáceo para texto secundario */
+    font-size: 0.95rem;         /* Tamaño ligeramente menor al cuerpo */
+    line-height: 1.7;           /* Altura de línea cómoda para leer */
+    margin-bottom: 30px;        /* Espacio antes de los botones */
+    max-width: 480px;           /* Limita el ancho para no estirar el texto */
+}
+
+/* ================================================================
+   BOTONES DEL HERO
+   ================================================================ */
+
+.hero-btns {
+    display: flex;              /* Botones en fila */
+    gap: 12px;                  /* Espacio entre botones */
+    align-items: center;        /* Alineados verticalmente al centro */
+    margin-bottom: 40px;        /* Espacio antes de las estadísticas */
+}
+
+/* Botón principal - relleno turquesa */
+.btn-hero-primary {
+    background: #00c896;        /* Fondo turquesa */
+    color: #fff;                /* Texto blanco */
+    padding: 11px 26px;         /* Espaciado interno */
+    border-radius: 8px;         /* Bordes redondeados */
+    font-size: 0.88rem;         /* Tamaño de fuente */
+    font-weight: 600;           /* Semi-negrita */
+    text-decoration: none;      /* Sin subrayado */
+    transition: all 0.25s ease; /* Animación suave */
+}
+
+.btn-hero-primary:hover {
+    background: #00e6ad;                              /* Turquesa más brillante al pasar el mouse */
+    transform: translateY(-2px);                      /* Sube 2px (efecto flotante) */
+    box-shadow: 0 6px 20px rgba(0, 200, 150, 0.3);  /* Sombra turquesa */
+}
+
+/* Botón secundario - solo borde */
+.btn-hero-secondary {
+    border: 1px solid #00c896;  /* Solo borde turquesa, sin relleno */
+    color: #00c896;             /* Texto turquesa */
+    padding: 11px 26px;         /* Mismo espaciado que el primario */
+    border-radius: 8px;         /* Bordes redondeados */
+    font-size: 0.88rem;         /* Tamaño de fuente */
+    text-decoration: none;      /* Sin subrayado */
+    transition: all 0.25s ease; /* Animación suave */
+}
+
+.btn-hero-secondary:hover {
+    background: rgba(0, 200, 150, 0.1); /* Fondo turquesa transparente al hover */
+    transform: translateY(-2px);         /* Sube 2px */
+}
+
+/* ================================================================
+   ESTADÍSTICAS - 120+ Vehículos | 18 Rutas | 24/7
+   ================================================================ */
+
+.hero-stats {
+    display: flex;              /* Estadísticas en fila */
+    align-items: center;        /* Alineadas verticalmente */
+    gap: 24px;                  /* Espacio entre cada estadística */
+}
+
+.hero-stat {
+    display: flex;              /* Número y label en columna */
+    flex-direction: column;
+    gap: 4px;                   /* Espacio entre número y label */
+}
+
+.hero-stat-num {
+    color: #00c896;             /* Turquesa para los números */
+    font-size: 1.5rem;          /* Números grandes */
+    font-weight: 700;           /* Negrita */
+    line-height: 1;
+}
+
+.hero-stat-label {
+    color: #4a7a8a;             /* Azul grisáceo oscuro para el texto descriptivo */
+    font-size: 0.72rem;         /* Texto pequeño */
+}
+
+/* Línea divisora entre estadísticas */
+.hero-stat-divider {
+    width: 1px;                 /* Línea delgada */
+    height: 36px;               /* Altura de la línea */
+    background: #0a2a3a;        /* Azul oscuro casi invisible */
+}
+
+
+/* ================================================================
+   BARRA DE BÚSQUEDA
+   ================================================================ */
+
+.search-section {
+    padding: 0 0 40px;              /* Espacio abajo */
+}
+
+.search-box {
+    background: #010d1e;            /* Fondo azul casi negro */
+    border: 1px solid #0a2a4a;     /* Borde azul oscuro */
+    border-radius: 10px;            /* Bordes redondeados */
+    display: flex;                  /* Ícono, input y botón en fila */
+    align-items: center;            /* Alineados verticalmente */
+    padding: 14px 16px;             /* Espaciado interno */
+    gap: 10px;                      /* Espacio entre elementos */
+    transition: border 0.25s ease;  /* Animación al enfocar */
+}
+
+.search-box:focus-within {
+    border-color: #00c896;          /* Borde turquesa cuando el input está activo */
+}
+
+.search-icon {
+    color: #00c896;                 /* Ícono de ubicación en turquesa */
+    font-size: 1rem;
+}
+
+.search-input {
+    flex: 1;                        /* Ocupa todo el espacio disponible */
+    background: transparent;        /* Sin fondo propio */
+    border: none;                   /* Sin borde */
+    outline: none;                  /* Sin borde al enfocar */
+    color: #e8f0f8;                 /* Texto blanco azulado */
+    font-size: 0.88rem;
+}
+
+.search-input::placeholder {
+    color: #4a7a8a;                 /* Placeholder en azul grisáceo */
+}
+
+.search-btn {
+    background: #00c896;            /* Botón turquesa */
+    color: #fff;                    /* Ícono blanco */
+    border: none;                   /* Sin borde */
+    padding: 8px 16px;              /* Espaciado interno */
+    border-radius: 7px;             /* Bordes redondeados */
+    cursor: pointer;                /* Cursor de mano al pasar */
+    font-size: 0.88rem;
+    transition: all 0.25s ease;
+}
+
+.search-btn:hover {
+    background: #00e6ad;            /* Turquesa más brillante al hover */
+}
+
+
+/* ================================================================
+   TABLA DE RESULTADOS
+   ================================================================ */
+
+.search-results {
+    margin-top: 16px;               /* Espacio entre la barra y la tabla */
+    background: #010d1e;            /* Fondo azul casi negro */
+    border: 1px solid #0a2a4a;     /* Borde azul oscuro */
+    border-radius: 10px;            /* Bordes redondeados */
+    overflow: hidden;               /* Para que los bordes redondeados corten la tabla */
+}
+
+.results-title {
+    padding: 12px 16px;             /* Espaciado interno */
+    color: #7aaabb;                 /* Texto azul grisáceo */
+    font-size: 0.78rem;             /* Texto pequeño */
+    border-bottom: 1px solid #0a2a4a; /* Línea separadora */
+}
+
+.results-title span {
+    color: #00c896;                 /* El término buscado en turquesa */
+    font-weight: 600;
+}
+
+.results-table {
+    width: 100%;                    /* Ocupa todo el ancho */
+    border-collapse: collapse;      /* Sin espacios entre celdas */
+}
+
+.results-table th {
+    background: #020c24;            /* Encabezado azul muy oscuro */
+    color: #4a7a8a;                 /* Texto azul grisáceo */
+    font-size: 0.72rem;             /* Texto pequeño */
+    padding: 10px 14px;             /* Espaciado interno */
+    text-align: left;               /* Texto alineado a la izquierda */
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #0a2a4a;
+}
+
+.results-table td {
+    color: #a0c4c4;                 /* Texto azul claro */
+    font-size: 0.78rem;
+    padding: 10px 14px;             /* Espaciado interno */
+    border-bottom: 1px solid #051428; /* Línea entre filas */
+}
+
+.results-table tr:last-child td {
+    border-bottom: none;            /* Sin línea en la última fila */
+}
+
+.results-table tr:hover td {
+    background: rgba(0, 200, 150, 0.04); /* Fondo sutil al pasar el mouse */
+}
+
+/* Badge de la ruta */
+.ruta-badge {
+    background: rgba(0, 200, 150, 0.15); /* Fondo turquesa transparente */
+    color: #00c896;                       /* Texto turquesa */
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.68rem;
+    font-weight: 600;
+}
+
+
+
+/* ================================================================
+   RUTAS MÁS CERCANAS
+   ================================================================ */
+
+.nearby-section {
+    padding: 0 0 50px;              /* Espacio abajo */
+}
+
+.nearby-box {
+    background: #010d1e;            /* Fondo azul casi negro */
+    border: 1px solid #0a2a4a;     /* Borde azul oscuro */
+    border-radius: 12px;            /* Bordes redondeados */
+    overflow: hidden;               /* Para que los bordes corten las filas */
+}
+
+/* Título "RUTAS MÁS CERCANAS" */
+.nearby-title {
+    padding: 14px 18px;             /* Espaciado interno */
+    color: #4a7a8a;                 /* Azul grisáceo */
+    font-size: 0.68rem;             /* Texto pequeño */
+    letter-spacing: 1px;            /* Espaciado entre letras */
+    border-bottom: 1px solid #0a2a4a; /* Línea separadora */
+}
+
+/* Cada fila de ruta */
+.route-row {
+    display: flex !important;                 /* Número, info y tiempo en fila */
+    align-items: center  !important;            /* Alineados verticalmente */
+    gap: 14px;                      /* Espacio entre elementos */
+    padding: 12px 18px;             /* Espaciado interno */
+    border-bottom: 1px solid #051428; /* Línea entre filas */
+    transition: background 0.2s ease; /* Animación al hover */
+}
+
+.route-row:last-of-type {
+    border-bottom: none;            /* Sin línea en la última fila */
+}
+
+.route-row:hover {
+    background: rgba(0, 200, 150, 0.04); /* Fondo sutil al pasar el mouse */
+}
+
+/* Cuadro con el número de ruta */
+.route-num {
+    width: 36px;                    /* Ancho fijo */
+    height: 36px;                   /* Alto fijo */
+    border-radius: 8px;             /* Bordes redondeados */
+    display: flex;                  /* Para centrar el número */
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;             /* Número pequeño */
+    font-weight: 700;               /* Negrita */
+    color: #fff;                    /* Texto blanco */
+    flex-shrink: 0;                 /* No se encoge en pantallas pequeñas */
+}
+
+/* Información de la ruta (nombre y recorrido) */
+.route-info {
+    flex: 1;                        /* Ocupa todo el espacio disponible */
+}
+
+.route-name {
+    color: #e8f0f8;                 /* Texto blanco azulado */
+    font-size: 0.82rem;             /* Tamaño normal */
+    font-weight: 600;               /* Semi-negrita */
+    margin-bottom: 2px;             /* Espacio antes del recorrido */
+}
+
+.route-path {
+    color: #4a7a8a;                 /* Azul grisáceo para el recorrido */
+    font-size: 0.7rem;              /* Texto pequeño */
+}
+
+/* Tiempo estimado de llegada */
+.route-time {
+    color: #00c896;                 /* Turquesa para resaltar el tiempo */
+    font-size: 0.8rem;
+    font-weight: 600;
+    flex-shrink: 0;                 /* No se encoge */
+}
+
+/* Enlace "Ver todas las rutas" */
+.ver-todas {
+    padding: 12px 18px;             /* Espaciado interno */
+}
+
+.ver-todas-link {
+    color: #00c896;                 /* Turquesa */
+    font-size: 0.78rem;
+    text-decoration: none;          /* Sin subrayado */
+    transition: color 0.2s ease;
+}
+
+.ver-todas-link:hover {
+    color: #00e6ad;                 /* Turquesa más brillante al hover */
+}
+
+
+div.route-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+}
+
+/* ================================================================
+   GRID: DOS COLUMNAS (rutas + conductor)
+   ================================================================ */
+
+.nearby-grid {
+    display: grid;                          /* Dos columnas lado a lado */
+    grid-template-columns: 1fr 1fr;         /* Cada columna ocupa la mitad */
+    gap: 16px;                              /* Espacio entre las dos tarjetas */
+}
+
+/* En móvil las columnas se apilan una debajo de la otra */
+@media (max-width: 768px) {
+    .nearby-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ================================================================
+   TARJETA DE CONDUCTOR
+   ================================================================ */
+
+.conductor-list {
+    padding: 12px;                          /* Espaciado interno */
+    display: flex;                          /* Tarjetas en columna */
+    flex-direction: column;
+    gap: 10px;                              /* Espacio entre tarjetas */
+}
+
+.conductor-card {
+    background: #020c24;                    /* Fondo azul muy oscuro */
+    border: 1px solid #0a2a4a;             /* Borde azul oscuro */
+    border-radius: 10px;                    /* Bordes redondeados */
+    padding: 12px;                          /* Espaciado interno */
+    display: flex !important;              /* Elementos en fila */
+    align-items: center !important;        /* Alineados verticalmente */
+    gap: 12px;                              /* Espacio entre elementos */
+}
+
+/* Avatar circular con iniciales del conductor */
+.conductor-avatar {
+    width: 42px;                            /* Ancho fijo */
+    height: 42px;                           /* Alto fijo */
+    border-radius: 50%;                     /* Círculo */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.78rem;                     /* Texto de iniciales */
+    font-weight: 700;                       /* Negrita */
+    color: #fff;                            /* Texto blanco */
+    flex-shrink: 0;                         /* No se encoge */
+}
+
+/* Información del conductor */
+.conductor-info {
+    flex: 1;                                /* Ocupa todo el espacio disponible */
+}
+
+.conductor-name {
+    color: #e8f0f8;                         /* Texto blanco azulado */
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.conductor-meta {
+    color: #4a7a8a;                         /* Azul grisáceo */
+    font-size: 0.68rem;
+    margin-bottom: 4px;
+}
+
+.conductor-stars {
+    color: #f5a623;                         /* Amarillo dorado para las estrellas */
+    font-size: 0.68rem;
+}
+
+/* Badge "Activo" */
+.conductor-badge {
+    background: rgba(0, 200, 150, 0.15);   /* Fondo turquesa transparente */
+    color: #00c896;                         /* Texto turquesa */
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    flex-shrink: 0;                         /* No se encoge */
+}
+
+
+/* ================================================================
+   AVISOS DEL SERVICIO
+   ================================================================ */
+
+.avisos-section {
+    padding: 0 0 50px;              /* Espacio abajo */
+}
+
+.avisos-box {
+    background: #010d1e;            /* Fondo azul casi negro */
+    border: 1px solid #0a2a4a;     /* Borde azul oscuro */
+    border-radius: 12px;            /* Bordes redondeados */
+    overflow: hidden;               /* Para que los bordes corten las filas */
+}
+
+/* Cada fila de aviso */
+.aviso-row {
+    display: flex !important;       /* Punto y texto en fila */
+    align-items: flex-start !important; /* Alineados arriba */
+    gap: 12px;                      /* Espacio entre punto e info */
+    padding: 12px 18px;             /* Espaciado interno */
+    border-bottom: 1px solid #051428; /* Línea entre avisos */
+    transition: background 0.2s ease;
+}
+
+.aviso-row:last-of-type {
+    border-bottom: none;            /* Sin línea en el último aviso */
+}
+
+.aviso-row:hover {
+    background: rgba(0, 200, 150, 0.04); /* Fondo sutil al hover */
+}
+
+/* Punto de color indicador de estado */
+.aviso-dot {
+    width: 10px;                    /* Tamaño del punto */
+    height: 10px;
+    border-radius: 50%;             /* Círculo */
+    flex-shrink: 0;                 /* No se encoge */
+    margin-top: 4px;                /* Alineado con el texto */
+}
+
+/* Colores de los puntos según severidad */
+.dot-rojo {
+    background: #e53935;            /* Rojo para problemas graves */
+}
+
+.dot-amarillo {
+    background: #f5a623;            /* Amarillo para advertencias */
+}
+
+.dot-verde {
+    background: #00c896;            /* Turquesa para estado normal */
+}
+
+/* Información del aviso */
+.aviso-info {
+    flex: 1;                        /* Ocupa todo el espacio disponible */
+}
+
+.aviso-titulo {
+    color: #e8f0f8;                 /* Texto blanco azulado */
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.aviso-meta {
+    color: #4a7a8a;                 /* Azul grisáceo para la info secundaria */
+    font-size: 0.7rem;
+}
+
+
