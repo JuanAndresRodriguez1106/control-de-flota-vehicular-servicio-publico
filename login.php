@@ -5,6 +5,13 @@ session_start();
 // traer conexion base de datos
 require_once 'config/conexion.php';
 
+// ️ Conexión a BD
+$db = new Database();
+$pdo = $db->conectar();
+if (!$pdo) {
+    die('<div class="alert alert-danger text-center mt-5"> Error de conexión a la base de datos</div>');
+}
+
 if (isset($_SESSION['user_id'])) {
     // Redirigir al usuario a la página de inicio si ya ha iniciado sesión
     header("Location: dash.php");
