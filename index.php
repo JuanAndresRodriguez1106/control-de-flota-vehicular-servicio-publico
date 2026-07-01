@@ -11,7 +11,70 @@ if (!$pdo) {
 }
 
 
+
+
+// BÚSQUEDA DE RUTAS
+
+// Verifica si el JS envió un término de búsqueda por POST
+if (isset($_POST['q'])) {
+
+    // Le dice al navegador que la respuesta es JSON
+    header('Content-Type: application/json');
+
+    // Incluye la conexión a la BD (devuelve $pdo)
+    require_once 'config/conexion.php';
+
+    // Recibe el término buscado, elimina espacios y etiquetas HTML
+    $termino = trim(strip_tags($_POST['q']));
+
+    // Agrega % a los lados para que LIKE busque en cualquier posición
+    // Ejemplo: "Centro" se convierte en "%Centro%"
+    $like = '%' . $termino . '%';
+
+    try {
+        // ========================================================
+        // CONSULTA SQL con signos ? como parámetros
+        // Cada ? se reemplaza en orden por los valores del execute()
+        // DISTINCT evita filas duplicadas
+        // ========================================================
+        $sql = "SELECT DISTINCT ruta.nombre_ruta, ruta.origen, ruta.destino, parada.nombre, 
+        CONCAT(usuario.nombre, ' ', usuario.apellido) AS conductor
+        FROM ruta
+        INNER JOIN parada                ON parada.id_ruta                    = ruta.id_ruta
+        INNER JOIN viaje                 ON viaje.id_ruta                     = ruta.id_ruta
+        INNER JOIN asignacion_vehiculo   ON asignacion_vehiculo.id_asignacion = viaje.id_asignacion
+        INNER JOIN conductor             ON conductor.id_conductor            = asignacion_vehiculo.id_conductor
+        INNER JOIN usuario               ON usuario.documento                 = conductor.documento
+        WHERE ruta.nombre_ruta = ?
+        OR parada.nombre    = ?
+        OR ruta.origen      = ?
+        OR ruta.destino     = ?
+        LIMIT 20
+        ";
+
+        // Prepara la consulta para evitar SQL injection
+        $stmt = $pdo->prepare($sql);
+
+        // Ejecuta enviando el $like 4 veces (uno por cada ?)
+        $stmt->execute([$like, $like, $like, $like]);
+
+        // Obtiene todos los resultados como array asociativo
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Devuelve los resultados en JSON al JS
+        echo json_encode($resultados);
+
+        // Termina la ejecución — no carga el HTML
+        exit;
+    } catch (PDOException $e) {
+        // Si hay error lo registra y devuelve array vacío
+        error_log('Error búsqueda rutas: ' . $e->getMessage());
+        echo json_encode([]);
+        exit;
+    }
+}
 ?>
+
 
 
 
@@ -176,7 +239,7 @@ if (!$pdo) {
 
                 <!-- Campo de texto donde el usuario escribe -->
                 <input
-                    type="text" id="searchInput"class="search-input" placeholder="¿A dónde vas? Busca tus líneas, barrio o parada...">
+                    type="text" id="searchInput" class="search-input" placeholder="¿A dónde vas? Busca tus líneas, barrio o parada...">
                 <!-- Botón de buscar -->
                 <button class="search-btn" id="searchBtn">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -369,12 +432,13 @@ if (!$pdo) {
 
 
     <!-- footer -->
-    <?php require_once __DIR__ . '/footer.php'; ?>
+    <?php require_once __DIR__ . '/includes/footer.php'; ?>
 
     <!-- Bootstrap JS con Popper incluido -->
     <!-- Necesario para que funcione el menú hamburguesa en móvil -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- Script de búsqueda de rutas -->
+    <script src="js/buscar_rutas_index.js"></script>
 </body>
 
 </html>
